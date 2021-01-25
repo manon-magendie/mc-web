@@ -1,0 +1,40 @@
+.oberteile {
+  width: 300px;
+  height: auto;
+  border: 2px  steelblue solid;
+}
+
+.ob-ks{
+    border: 1px silver solid;
+    width: 150px;
+}
+
+
+.flex-container{
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    background-color: rgb(200,200,200);
+    margin: 2em;
+    padding: 1em
+}
+
+html {
+    background-color: #00539F;
+  }
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #FF9500;
+    padding: 0 20px 20px 20px;
+    border: 5px solid rgb(68, 68, 68);
+  }
+
+  h1 {
+    margin: 0;
+    padding: 20px 0;
+    color: #00539F;
+    text-shadow: 3px 3px 2px black;
+    
+  }
