@@ -11,6 +11,11 @@ if ("geolocation" in navigator){
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         
+        var htmlLatitude = document.querySelector('#id-latitude');
+        htmlLatitude.textContent = latitude ;
+
+        var htmlLongitude = document.querySelector('#id-longitude');
+        htmlLongitude.textContent = longitude ;
          
     }, function () {
         noGeolocation();
@@ -21,9 +26,8 @@ if ("geolocation" in navigator){
     }
 
     function noGeolocation() {
-        alert("oh no please let me know your localisation!!")
+        alert("Hallo lieber Mensch, diese Webseite funktionniert leider nur mit einem Zugriff auf deine Lokalisation!")
     }
 
 
-  //!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 
