@@ -1,40 +1,99 @@
-.oberteile {
-  width: 300px;
-  height: auto;
-  border: 2px  steelblue solid;
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-.ob-ks{
-    border: 1px silver solid;
-    width: 150px;
-}
-
-
-.flex-container{
-    display: flex;
-    justify-content: stretch;
-    flex-wrap: wrap;
-    background-color: rgb(200,200,200);
-    margin: 2em;
-    padding: 1em
-}
-
-html {
-    background-color: #00539F;
-  }
 
 body {
-    width: 600px;
-    margin: 0 auto;
-    background-color: #FF9500;
-    padding: 0 20px 20px 20px;
-    border: 5px solid rgb(68, 68, 68);
-  }
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f3f3f3;
+    /*background: linear-gradient(45deg, #dfe6e9, #b2bec3);
+    height: 100vh;*/
+}
 
-  h1 {
-    margin: 0;
-    padding: 20px 0;
-    color: #00539F;
-    text-shadow: 3px 3px 2px black;
-    
-  }
+.container {
+    background:linear-gradient(45deg, #74b9ff, #00cec9);
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1 {
+    margin: 30px auto;
+    /*display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.bloc-logo-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    margin: 0 auto;
+    padding: 10px auto;
+    height: auto;
+    width: auto;
+    min-width: 350px;
+    background-color: rgb(71, 100, 119);
+}
+
+.bloc-localisation {
+    width: 30%;
+    font-size: 20px;
+}
+
+.bloc-logo {
+    width: 33%;
+}
+
+.logo-wetter {
+    width: 100%; 
+    height: auto;
+} 
+
+.bloc-info {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+.temperature {
+    font-size: 40px;
+}
+
+.description {
+    font-size: 14px;
+}
+
+.para {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+
+.bloc-image-description-idea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-description-idea {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    padding: 10px;
+    border: 2px solid white;
+    width: 250px;
+    height: 150px;
+}
+
+.image-idea {
+    width: 40px;
+    padding: 5px;
+}
+
