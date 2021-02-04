@@ -36,7 +36,7 @@ h1 {
     margin: 0 20px;
 }
 
-.wetter-text-bloc{
+.wetter-text-block{
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
@@ -44,7 +44,7 @@ h1 {
     padding: 2vw 2vw;
 }
 
-.wetter-bloc {
+.wetter-block {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -58,13 +58,13 @@ h1 {
     margin-right: 40px;
 }
 
-.bloc-localisation {
+.block-localisation {
     width: 30%;
     font-size: max(1.5vw, 20px);
     text-align: center;
 }
 
-.bloc-logo-wetter {
+.block-logo-wetter {
     width: 40%;
     text-align: center;
 }
@@ -74,7 +74,7 @@ h1 {
     margin: -20px 0;
 }
 
-.bloc-info {
+.block-info {
     display: flex; 
     flex-direction: column;
     justify-content: center;
@@ -100,7 +100,6 @@ h1 {
     font-size: max(1.3vw, 25px);
     width: 50%;
 }
-
 
 section {
     max-width: 1300px;
@@ -134,7 +133,6 @@ section {
     color: #272727;
 }
 
-
 footer {
     padding: 30px;
     background-color: rgb(126, 134, 150);
@@ -152,26 +150,18 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
-    
-    .wetter-text-bloc {
+    .wetter-text-block {
         display: flex;
         flex-direction: column;
     }
-    
     .text {
         width: 100%;
         margin: 20px 30px 20px 30px;
         font-size: 1.7rem;
     }
-
-    .wetter-bloc {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+    .wetter-block {
         width: 300px;
-        height: 80px;
-        border-radius: 7px;
+        height: 100px;
     }
 }
 
@@ -179,50 +169,27 @@ footer {
     h1 {
         display: flex;
         justify-content: center;
-        align-items: center; 
-        color: #1e8876;
-        font-family: 'Londrina Sketch', cursive;
         margin: 0 20px;
     }
-
     .text {
         width: 100%;
         padding: 20px 5px 20px 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #181613;
-        font-family: 'Reenie Beanie', cursive;
-        font-size: 20px;
+        font-size: 22px;
     }
-
-    .wetter-bloc {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        border-radius: 7px;
-        width: 300px;
-        height: 80px;
-        margin: 0 0;
-    }
-
-    .image-description-idea {
-        display: flex;
-        align-items: center;
-        margin: 20px 20px;
-        padding: 5px;
+    .wetter-block {
         width: 300px;
         height: 100px;
-        color: #ffffff;
-        border-radius: 10px;
+        margin: 0 0;
     }
-    
+    .image-description-idea {
+        margin: 20px 20px;
+        padding: 5px;
+        height: 100px;
+    }
     .image-idea {
         width: 26%;
         padding: 10px;
     }
-    
     .description-idea{
         width: 70%;
         margin: 5px 10px;
@@ -230,39 +197,24 @@ footer {
 }
 
 @media screen and (min-width: 1500px) {
-    .wetter-bloc {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        border-radius: 7px;
+    .wetter-block {
         width: 400px;
         height: 100px;
         margin: 0 0;
     }
-
     .image-description-idea {
-        display: flex;
-        align-items: center;
         margin: 30px 30px;
         padding: 5px;
         width: 350px;
         height: 130px;
-        color: #ffffff;
-        border-radius: 10px;
     }
-
     .temperature {
         font-size: 40px;
     }
-    
     .description {
         font-size: 20px;
     }
-
-    .bloc-localisation {
-        width: 30%;
+    .block-localisation {
         font-size: 35px;
-        text-align: center;
     }
 }

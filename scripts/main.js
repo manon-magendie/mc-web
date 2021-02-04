@@ -1,6 +1,8 @@
+// das API Schlüssel
 const APIKey = 'd6be068477f45cf90403c8efa916dda4';
 var ergebnisAPI ;
 
+// selektierte Klassen im HTML Code werden in Variablen gespeichert
 const temperature = document.querySelector('.temperature');
 const description = document.querySelector('.description');
 const localisation = document.querySelector('.localisation');
@@ -12,7 +14,7 @@ var arrIdee = [];
 var arrIcon = [];
 
 
-
+// schaut nach ob die Geolokalisation zugelassen ist. Wenn ja werden die Latitude und Longitude gespeichert
 if ("geolocation" in navigator){
     console.log("hallo1");
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -28,6 +30,7 @@ if ("geolocation" in navigator){
 
 
 function appelAPI(latitude, longitude) {
+    // benutzt das API und die Longitude und Latitude der Person
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=de&appid=${APIKey}`)
     .then ((response) => {
         return response.json();
@@ -37,18 +40,17 @@ function appelAPI(latitude, longitude) {
         ergebnisAPI = data;
         console.log(ergebnisAPI);
 
+        // die Beschreibung des Wetters, die Temperatur und der Ort werden aus den API Daten geholt und auf der Webseite angezeigt
         description.innerText = ergebnisAPI.weather[0].description;
         temperature.innerText = `${Math.trunc(ergebnisAPI.main.temp)}°`;
         localisation.innerText = ergebnisAPI.name;
 
-        let aktuelleUhrzeit = new Date().getHours(); 
 
         // Dynamisches Wetter Icon
         logoWetter.src = `ressources/wetter/${ergebnisAPI.weather[0].icon}.svg`;
-        
 
-        // Idee in blocs je nach Wetter
 
+        // schaut nach, welche Bedingungen das Wetter erfüllt und ruft die entsprechende Funktion
         if (ergebnisAPI.weather[0].main == "Clouds") {
             console.log('clouds');
             clouds();
@@ -68,24 +70,20 @@ function appelAPI(latitude, longitude) {
             snow();
             
         } else if (ergebnisAPI.weather[0].main == "Mist" || ergebnisAPI.weather[0].main == "Smoke" || ergebnisAPI.weather[0].main == "Haze" || ergebnisAPI.weather[0].main == "Dust" || ergebnisAPI.weather[0].main == "Fog" || ergebnisAPI.weather[0].main == "Sand" || ergebnisAPI.weather[0].main == "Ash" || ergebnisAPI.weather[0].main == "Squall" || ergebnisAPI.weather[0].main == "Tornado") {
-            
             mist();
         }
 
-        console.log('out if');
-
+        // die Arrays werden zum HTML Code geschickt. Jedes Block bekommt eine Beschreibung der Idee und ein Icon 
         for (let i = 0; i < placeIdee.length; i++) {
             placeIdee[i].innerText = arrIdee[i] ;
         }
         for (let n = 0; n < placeIcon.length; n++) {
             placeIcon[n].src = `ressources/icons/${arrIcon[n]}.svg`;
         }
-
     })
-    console.log('out then');
 }
 
-
+// die Funktionen die je nach Wetter angerufen werden. Die 2 arrays werden in den Funktionen definiert
 function clouds () {
 
     if (ergebnisAPI.main.temp <= 5) {
@@ -126,6 +124,7 @@ function clear () {
     }
 }
 
+// bei Regen, Nebel, Schnee und Gewitter, wird die Temperatur nicht mehr beachtet, da angenommen wird dass man sowieso zuhause bleibt
 function thunderstorm () {
     arrIdee = ['ein Home Workout machen', 'ein Buch lesen', 'Sticken lernen', 'Briefe schreiben und schicken', 'neue Bilder oder Poster aufhängen', 'ein Film oder eine Serie schauen', 'Dart spielen', 'ein Tagebuch anfangen', 'Origamis machen']
     arrIcon = ['workout', 'study', 'sticken', 'briefe', 'poster', 'film', 'dart', 'tagebuch', 'origami']
