@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+html{
+    font-size: 16px;
+}
+
 body {
     font-family: 'Sulphur Point', sans-serif;
     color: rgb(245, 239, 239);
@@ -15,9 +19,27 @@ body {
     padding-bottom: 82.4px;
 }
 
-html{
-    font-size: 16px;
+.overlay-loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(31, 30, 29, 0.5);
+    transition: opacity 0.5s ease-out;
+    z-index: 100;
 }
+
+.overlay-loader img {
+    width: 120px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.verschwindet{
+    opacity: 0;
+}
+
 
 header {
     display: flex;

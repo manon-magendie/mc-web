@@ -9,6 +9,7 @@ const localisation = document.querySelector('.localisation');
 const logoWetter = document.querySelector('.logo-wetter');
 const placeIdee = document.querySelectorAll('.description-idea');
 const placeIcon = document.querySelectorAll('.image-idea');
+const loadingContainer = document.querySelector('.overlay-loader');
 
 var arrIdee = [];
 var arrIcon = [];
@@ -80,6 +81,8 @@ function appelAPI(latitude, longitude) {
         for (let n = 0; n < placeIcon.length; n++) {
             placeIcon[n].src = `ressources/icons/${arrIcon[n]}.svg`;
         }
+
+        loadingContainer.classList.add('verschwindet');
     })
 }
 
