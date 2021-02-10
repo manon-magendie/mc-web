@@ -128,7 +128,7 @@ function rain() {
 }
 
 function snow() {
-    arrIdee = [['Schlitten fahren', 's1'], ['Plätzchen backen', 's2'], ['mit Freunden wetten wie lange der Schnee liegen bleibt'], ['heiße Schokolade trinken', 's4'], ['ein Schneeengel machen', 's5'], ['versuchen Schnee Flöckchen aus der Luft zu essen', 's6'], ['warm baden', 'bathtub'], ['eine Schneeballschlacht veranstalten', 's8'], ['eine Weihnachtsplaylist anhören', 's9']]  
+    arrIdee = [['Schlitten fahren', 's1'], ['Plätzchen backen', 's2'], ['mit Freunden wetten wie lange der Schnee liegen bleibt', 's3'], ['heiße Schokolade trinken', 's4'], ['ein Schneeengel machen', 's5'], ['versuchen Schnee Flöckchen aus der Luft zu essen', 's6'], ['warm baden', 'bathtub'], ['eine Schneeballschlacht veranstalten', 's8'], ['eine Weihnachtsplaylist anhören', 's9']]  
 }
 
 function mist() {
