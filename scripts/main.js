@@ -11,8 +11,7 @@ const placeIdee = document.querySelectorAll('.description-idea');
 const placeIcon = document.querySelectorAll('.image-idea');
 const loadingContainer = document.querySelector('.overlay-loader');
 
-var arrIdee = [];
-var arrIcon = [];
+var ideas = [];
 
 
 // schaut nach ob die Geolokalisation zugelassen ist. Wenn ja werden die Latitude und Longitude gespeichert
@@ -76,10 +75,10 @@ function appelAPI(latitude, longitude) {
 
         // die Arrays werden zum HTML Code geschickt. Jedes Block bekommt eine Beschreibung der Idee und ein Icon 
         for (let i = 0; i < placeIdee.length; i++) {
-            placeIdee[i].innerText = arrIdee[i] ;
+            placeIdee[i].innerText = ideas[i][0] ;
         }
         for (let n = 0; n < placeIcon.length; n++) {
-            placeIcon[n].src = `ressources/icons/${arrIcon[n]}.svg`;
+            placeIcon[n].src = `ressources/icons/${ideas[n][1]}.svg`;
         }
 
         loadingContainer.classList.add('verschwindet');
@@ -90,62 +89,50 @@ function appelAPI(latitude, longitude) {
 function clouds () {
 
     if (ergebnisAPI.main.temp <= 5) {
-        arrIdee = ['sein Zimmer putzen', 'ein Tagebuch anfangen', 'Fotos auf dem Computer oder Handy aussortieren', 'eine Sammlung seiner besten Rezepte erstellen', 'Tee trinken', 'Briefe schreiben und schicken', 'die Tiefkühltruhe enteisen', 'neue Bilder oder Poster aufhängen', 'mit Freunden oder Familie telefonieren']
-        arrIcon = ['cleaning', 'tagebuch', 'fotos', 'rezepte', 'tea-mug', 'briefe', 'freezer', 'poster', 'phone']    
+        ideas = [['sein Zimmer putzen', 'cleaning'], ['ein Tagebuch anfangen', 'tagebuch'], ['Fotos auf dem Computer oder Handy aussortieren', 'fotos'], ['eine Sammlung seiner besten Rezepte erstellen', 'rezepte'], ['Tee trinken', 'tea-mug'], ['Briefe schreiben und schicken', 'briefe'], ['die Tiefkühltruhe enteisen', 'freezer'], ['neue Bilder oder Poster aufhängen', 'poster'], ['mit Freunden oder Familie telefonieren', 'phone']]
     }
     else if (ergebnisAPI.main.temp > 5 && ergebnisAPI.main.temp <= 15) {
-        arrIdee = ['Podcasts hören', 'einen Drachen fliegen lassen', 'den Kühlschrank putzen', 'endlich mal sein Fahrrad reparieren', 'seine Schuhe putzen', 'Yoga alleine oder online mit Freunde machen', 'Skateboard oder Inliner fahren gehen', 'das Pfand wegbringen', 'seinen Kleiderschrank ausmisten']
-        arrIcon = ['podcast', 'drachen', 'fridge', 'reparieren', 'schuhe', 'yoga', 'skateboard', 'pfand', 'schrank']     
+        ideas = [['Podcasts hören', 'podcast'], ['einen Drachen fliegen lassen', 'drachen'], ['den Kühlschrank putzen', 'fridge'], ['endlich mal sein Fahrrad reparieren', 'reparieren'], ['seine Schuhe putzen', 'schuhe'], ['Yoga alleine oder online mit Freunde machen', 'yoga'], ['Skateboard oder Inliner fahren gehen', 'skateboard'], ['das Pfand wegbringen', 'pfand'], ['seinen Kleiderschrank ausmisten', 'schrank']]     
     }
     else if (ergebnisAPI.main.temp > 15 && ergebnisAPI.main.temp <= 25) {
-        arrIdee = ['Müll im Park sammeln #planetlove', 'Rollerskate fahren gehen', 'mit Freunden oder Familie telefonieren', 'sich um seine Pflanzen kümmern', 'ein Karaoké machen', 'einen Drachen fliegen lassen', 'ein neues Kochrezept ausprobieren', 'joggen gehen', 'die Besteckschublade putzen' ]
-        arrIcon = ['müll', 'rollerskate', 'phone', 'plants', 'karaoke', 'drachen', 'kochen', 'joggen', 'schublade']
+        ideas = [['Müll im Park sammeln #planetlove', 'müll'], ['Rollerskate fahren gehen', 'rollerskate'], ['mit Freunden oder Familie telefonieren', 'phone'], ['sich um seine Pflanzen kümmern', 'plants'], ['ein Karaoké machen', 'karaoke'], ['einen Drachen fliegen lassen', 'drachen'], ['ein neues Kochrezept ausprobieren', 'kochen'], ['joggen gehen', 'joggen'], ['die Besteckschublade putzen', 'schublade']]
     }
     else if (ergebnisAPI.main.temp > 25) {
-        arrIdee = ['eine Runde spazieren gehen', 'in einem See baden', 'auf dem Markt einkaufen gehen', 'in einer Hängematte chillen', 'das Altglas entsorgen', 'einen Drachen fliegen lassen', 'seine Pflanzen gießen', 'Eiskaffee trinken', 'eine Fahrradtour machen']
-        arrIcon = ['spaziergang', 'see', 'markt', 'hängematte', 'altglas', 'drachen', 'gießen', 'eiskaffee', 'fahrrad']     
+        ideas = [['eine Runde spazieren gehen', 'spaziergang'], ['in einem See baden', 'see'], ['auf dem Markt einkaufen gehen', 'markt'], ['in einer Hängematte chillen', 'hängematte'], ['das Altglas entsorgen', 'altglas'], ['einen Drachen fliegen lassen', 'drachen'], ['seine Pflanzen gießen', 'gießen'], ['Eiskaffee trinken', 'eiskaffee'], ['eine Fahrradtour machen', 'fahrrad']] 
     }
 }
 
 function clear () {
 
     if (ergebnisAPI.main.temp <= 5) {
-        arrIdee = ['eine heiße Schokolade trinken', 'joggen gehen', 'Abends den Sonnenuntergang genießen', 'den Keller aufräumen', 'ein Winter barbecue machen', 'in einem Park spazieren gehen', 'ein Lagerfeuer machen', 'die Tiefkühltruhe enteisen', 'sich um seine Pflanzen kümmern']
-        arrIcon = ['s4', 'joggen', 'sunset', 'besen', 'barbecue', 'spaziergang', 'lagerfeuer', 'freezer', 'plants']        
+        ideas = [['eine heiße Schokolade trinken', 's4'], ['joggen gehen', 'joggen'], ['Abends den Sonnenuntergang genießen', 'sunset'], ['den Keller aufräumen', 'besen'], ['ein Winter barbecue machen', 'barbecue'], ['in einem Park spazieren gehen', 'spaziergang'], ['ein Lagerfeuer machen', 'lagerfeuer'], ['die Tiefkühltruhe enteisen', 'freezer'], ['sich um seine Pflanzen kümmern', 'plants']]      
     } 
     else if (ergebnisAPI.main.temp > 5 && ergebnisAPI.main.temp <= 15) {
-        arrIdee = ['im Garten arbeiten', 'Podcast hören', 'sein Zimmer putzen', 'Abends den Sonnenuntergang genießen', 'im Park turnen', 'Fotos auf seinem Computer oder Handy aussortieren', 'Skateboard oder Inliner fahren', 'Müll im Park sammeln #planetlove', 'joggen gehen']
-        arrIcon = ['garten', 'podcast', 'cleaning', 'sunset', 'turnen', 'fotos', 'skateboard', 'müll', 'joggen']       
+        arrIdee = [['im Garten arbeiten', 'garten'], ['Podcast hören', 'podcast'], ['sein Zimmer putzen', 'cleaning'], ['Abends den Sonnenuntergang genießen', 'sunset'], ['im Park turnen', 'turnen'], ['Fotos auf seinem Computer oder Handy aussortieren', 'fotos'], ['Skateboard oder Inliner fahren', 'skateboard'], ['Müll im Park sammeln #planetlove', 'müll'], ['joggen gehen', 'joggen']]      
     }
     else if (ergebnisAPI.main.temp > 15 && ergebnisAPI.main.temp <= 25) {
-        arrIdee = ['sich in der Sonne bräunen', 'Skateboard oder Inliner fahren', 'das Altglas entsorgen', 'eine Wanderung machen', 'auf dem Markt einkaufen gehen', 'Fahrrad fahren', 'ein Barbecue machen', 'im Park lesen', 'im Garten arbeiten']
-        arrIcon = ['sun', 'skateboard', 'altglas', 'wandern', 'markt', 'fahrrad', 'barbecue', 'study', 'garten']        
+        arrIdee = [['sich in der Sonne bräunen', 'sun'], ['Skateboard oder Inliner fahren', 'skateboard'], ['das Altglas entsorgen', 'altglas'], ['eine Wanderung machen', 'wandern'], ['auf dem Markt einkaufen gehen', 'markt'], ['Fahrrad fahren', 'fahrrad'], ['ein Barbecue machen', 'barbecue'], ['im Park lesen', 'study'], ['im Garten arbeiten', 'garten']]    
     }
     else if (ergebnisAPI.main.temp > 25) {
-        arrIdee = ['sich Eis selber machen', 'draußen Freunde mit Abstand treffen', 'im Wald die frische Luft genießen', 'in einem See baden', 'Abends den Sonnenuntergang genießen', 'ein Barbecue machen', 'in einer Hängematte chillen', 'Getränke mixen', 'sich in der Sonne bräunen' ]
-        arrIcon = ['eis', 'friends', 'wald', 'see', 'sunset', 'barbecue', 'hängematte', 'drinks', 'sun']    
+        arrIdee = [['sich Eis selber machen', 'eis'], ['draußen Freunde mit Abstand treffen', 'friends'], ['im Wald die frische Luft genießen', 'wald'], ['in einem See baden', 'see'], ['Abends den Sonnenuntergang genießen', 'sunset'], ['ein Barbecue machen', 'barbecue'], ['in einer Hängematte chillen', 'hängematte'], ['Getränke mixen', 'drinks'], ['sich in der Sonne bräunen', 'sun']] 
     }
 }
 
 // bei Regen, Nebel, Schnee und Gewitter, wird die Temperatur nicht mehr beachtet, da angenommen wird dass man sowieso zuhause bleibt
 function thunderstorm () {
-    arrIdee = ['ein Home Workout machen', 'ein Buch lesen', 'Sticken lernen', 'Briefe schreiben und schicken', 'neue Bilder oder Poster aufhängen', 'ein Film oder eine Serie schauen', 'Dart spielen', 'ein Tagebuch anfangen', 'Origamis machen']
-    arrIcon = ['workout', 'study', 'sticken', 'briefe', 'poster', 'film', 'dart', 'tagebuch', 'origami']
+    arrIdee = [['ein Home Workout machen', 'workout'], ['ein Buch lesen', 'study'], ['Sticken lernen', 'sticken'], ['Briefe schreiben und schicken', 'briefe'], ['neue Bilder oder Poster aufhängen', 'poster'], ['ein Film oder eine Serie schauen', 'film'], ['Dart spielen', 'dart'], ['ein Tagebuch anfangen', 'tagebuch'], ['Origamis machen', 'origami']]
 }
 
 function rain() {
-    arrIdee = ['seinen Kleiderschrank ausmisten', 'ein Home Workout machen', 'mit Freunden oder Familie telefonieren', 'Tee trinken', 'seine Pflanzen raus stellen', 'einen Liebesbrief schreiben', 'Yoga alleine oder online mit Freunden machen', 'ein Buch lesen', 'Programmieren lernen #coder4life']
-    arrIcon = ['schrank', 'workout', 'phone', 'tea-mug', 'plants', 'briefe', 'yoga', 'study', 'coding']       
+    arrIdee = [['seinen Kleiderschrank ausmisten', 'schrank'], ['ein Home Workout machen', 'workout'], ['mit Freunden oder Familie telefonieren', 'phone'], ['Tee trinken', 'tea-mug'], ['seine Pflanzen raus stellen', 'plants'], ['einen Liebesbrief schreiben', 'briefe'], ['Yoga alleine oder online mit Freunden machen', 'yoga'], ['ein Buch lesen', 'study'], ['Programmieren lernen #coder4life', 'coding']]      
 }
 
 function snow() {
-    arrIdee = ['Schlitten fahren', 'Plätzchen backen', 'mit Freunden wetten wie lange der Schnee liegen bleibt', 'heiße Schokolade trinken', 'ein Schneeengel machen', 'versuchen Schnee Flöckchen aus der Luft zu essen', 'warm baden', 'eine Schneeballschlacht veranstalten', 'eine Weihnachtsplaylist anhören']
-    arrIcon = ['s1', 's2', 's3', 's4', 's5', 's6', 'bathtub', 's8', 's9']        
+    arrIdee = [['Schlitten fahren', 's1'], ['Plätzchen backen', 's2'], ['mit Freunden wetten wie lange der Schnee liegen bleibt'], ['heiße Schokolade trinken', 's4'], ['ein Schneeengel machen', 's5'], ['versuchen Schnee Flöckchen aus der Luft zu essen', 's6'], ['warm baden', 'bathtub'], ['eine Schneeballschlacht veranstalten', 's8'], ['eine Weihnachtsplaylist anhören', 's9']]  
 }
 
 function mist() {
-    arrIdee = ['seine Uni- oder Arbeitsdokumente aussortieren', 'sich um seine Pflanzen kümmern', 'ein Buch lesen', 'den Keller aufräumen', 'online mit Freunden zocken', 'seine Nägel lackieren', 'eine Sammlung seiner besten Rezepte erstellen', 'Tee trinken', 'anfangen eine neue Sprache zu lernen']
-    arrIcon = ['dokumente', 'pflanze', 'study', 'besen', 'zocken', 'nails', 'rezepte', 'tea-mug', 'sprache']
+    arrIdee = [['seine Uni- oder Arbeitsdokumente aussortieren', 'dokumente'], ['sich um seine Pflanzen kümmern', 'pflanze'], ['ein Buch lesen', 'study'], ['den Keller aufräumen', 'besen'], ['online mit Freunden zocken', 'zocken'], ['seine Nägel lackieren', 'nails'], ['eine Sammlung seiner besten Rezepte erstellen', 'rezepte'], ['Tee trinken', 'tea-mug'], ['anfangen eine neue Sprache zu lernen', 'sprache']]
 }
 
 
